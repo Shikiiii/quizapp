@@ -25,7 +25,7 @@ class AddPoll(View):
 		owner = request.POST.get("auth")
 
 		check = _AddPoll.add_question(question, choices, owner)
-		return HttpResponse("Your question has been added.") if check == True else check
+		return HttpResponse("Your question has been added.") if check == True else HttpResponse(check)
 
 
 
@@ -41,4 +41,4 @@ class VotePoll(View):
 		option = request.POST.get("choice")
 
 		check = _VotePoll.add_question(question, option)
-		return HttpResponse("You have succesfully voted.") if check == True else check
+		return HttpResponse("You have succesfully voted.") if check == True else HttpResponse(check)
